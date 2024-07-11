@@ -1,0 +1,120 @@
+/* Login.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #141414; /* Dark background color */
+  font-family: "Roboto", sans-serif;
+  position: relative; /* Ensure the container is the reference for absolute positioning */
+  overflow: hidden; /* Ensure rings do not overflow out of the container */
+}
+
+.left-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  max-width: 50%; /* Ensure the image doesn't exceed half the screen width */
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%; /* Adjust as needed to align the login form */
+}
+
+.login-box {
+  background: rgba(0, 0, 0, 0.75); /* Netflix black color with transparency */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  position: relative; /* To position the rings absolutely within the login box */
+  z-index: 1; /* Ensure the login box is above the rings */
+}
+
+.login-box::before,
+.login-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: square-animation 4s infinite;
+  border: 2px solid; /* Define the border for the squares */
+}
+
+.login-box::before {
+  border-color: #fff; /* White square */
+}
+
+.login-box::after {
+  border-color: #e50914; /* Netflix red square */
+  animation-delay: 1.5s;
+}
+
+@keyframes square-animation {
+  0% {
+    width: 500px; /* Starting width */
+    height: 450px; /* Starting height */
+    opacity: 1;
+  }
+  100% {
+    width: 550px; /* Ending width */
+    height: 500px; /* Ending height */
+    opacity: 0;
+  }
+}
+
+.login-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff; /* White color */
+}
+
+.login-subtitle {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #b3b3b3; /* Netflix light gray color */
+}
+
+.login-input {
+  width: 300px; /* Set a fixed width for the input fields */
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #333; /* Dark gray background */
+  color: #fff; /* White text */
+}
+
+.login-input::placeholder {
+  color: #b3b3b3; /* Light gray placeholder text */
+}
+
+.login-button {
+  width: 300px; /* Set a fixed width for the button to match the input fields */
+  padding: 15px;
+  background: #e50914; /* Netflix red color */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #f40612; /* Slightly lighter red on hover */
+}
