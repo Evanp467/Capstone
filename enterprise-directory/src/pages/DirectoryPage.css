@@ -1,0 +1,96 @@
+/* DirectoryPage.css */
+
+.directory-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f0f0f0; /* Light background for the whole page */
+}
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: #fff; /* White background for the sidebar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.filter {
+  margin-bottom: 20px;
+}
+
+.filter label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.filter select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.directory-title {
+  font-size: 2em;
+  margin: 0;
+}
+
+.search-input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.employee-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.employee-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px;
+}
+
+.employee-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.employee-name {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.employee-role,
+.employee-location,
+.employee-email {
+  font-size: 0.9em;
+  color: #666; /* Light gray text */
+  margin-bottom: 5px;
+}
