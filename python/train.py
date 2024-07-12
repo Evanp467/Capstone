@@ -31,17 +31,16 @@ print(city_count)
 # Visualize the data
 sns.countplot(data=df, x='role')
 plt.title('Character Count by Role')
+plt.xticks(rotation=45)
 plt.show()
 
 sns.countplot(data=df, x='city')
 plt.title('Count by City')
+plt.xticks(rotation=45)
 plt.show()
 
 # Ensure all categorical features are encoded to numeric
 df_encoded = pd.get_dummies(df, columns=['role', 'city'])
-
-# Check for non-numeric columns or unexpected values
-print(df_encoded.dtypes)
 
 # Define features and target
 X = df_encoded.drop(columns=['employee_id', 'name', 'show', 'phone', 'salary'])  # Ensure non-numeric and unnecessary columns are dropped
