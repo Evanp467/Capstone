@@ -16,9 +16,9 @@ with open("city.json", encoding="utf-8") as json_file:
 with open('characters.json', 'r', encoding='utf-8') as file:
     characters = json.load(file)
 
-# Extract names and shuffle
-names = [char.get('character') for i, char in enumerate(characters, 1)]
-random.shuffle(names)
+# Extract names and shows, then shuffle
+names_and_shows = [(char.get('character'), char.get('show')) for char in characters]
+random.shuffle(names_and_shows)
 
 # Generate a phone number
 def generate_phone_number():
@@ -67,13 +67,14 @@ for i in range(1, NUM_ROWS + 1):
     city = random.choice(cities)
     city_name = city["name"]
 
-    # Pop a name from the shuffled list
-    name = names.pop()
+    # Pop a name and show from the shuffled list
+    name, show = names_and_shows.pop()
 
     # Create the data row
     data_row = [
         employee_id,
         name,
+        show,
         role,
         phone,
         city_name,
@@ -91,7 +92,7 @@ for i in range(1, NUM_ROWS + 1):
 with open(OUTPUT_FILE, "w", newline="") as file:
     writer = csv.writer(file)
     writer.writerow(
-        ["employee_id", "name", "role", "phone", "city", "salary", "location_x", "location_y", "destination_x", "destination_y"]
+        ["employee_id", "name", "show", "role", "phone", "city", "salary", "location_x", "location_y", "destination_x", "destination_y"]
     )
     writer.writerows(data_rows)
 
