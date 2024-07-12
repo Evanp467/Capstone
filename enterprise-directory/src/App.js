@@ -1,35 +1,18 @@
 import React from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DirectoryPage from "./pages/DirectoryPage";
-import EmployeePage from "./pages/EmployeePage";
-import "./App.css";
+import LoginPage from "./pages/LoginPage";
+import EmployeeDetail from "./pages/EmployeePage";
 
 function App() {
-  const isAuthenticated = !!localStorage.getItem("user");
-
   return (
-    <div className="App">
+    <Router>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route
-          path="/directory"
-          element={
-            isAuthenticated ? <DirectoryPage /> : <Navigate to="/login" />
-          }
-        />
-        <Route
-          path="/employee/:id"
-          element={
-            isAuthenticated ? <EmployeePage /> : <Navigate to="/login" />
-          }
-        />
-        <Route
-          path="/"
-          element={<Navigate to={isAuthenticated ? "/directory" : "/login"} />}
-        />
+        <Route path="/DirectoryPage" element={<DirectoryPage />} />
+        <Route path="/employee/:id" element={<EmployeeDetail />} />
       </Routes>
-    </div>
+    </Router>
   );
 }
 
