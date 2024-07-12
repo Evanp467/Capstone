@@ -9,15 +9,15 @@ NUM_ROWS = 1000
 OUTPUT_FILE = "employees.csv"
 
 # Load City data from JSON file
-with open("city.json") as json_file:
-    city = json.load(json_file)
+with open("city.json", encoding="utf-8") as json_file:
+    cities = json.load(json_file)
 
 # Load the JSON data
-with open('characters.json', 'r') as file:
+with open('characters.json', 'r', encoding='utf-8') as file:
     characters = json.load(file)
 
 # Extract names and shuffle
-names = [char['name'] for char in characters]
+names = [char.get('character') for i, char in enumerate(characters, 1)]
 random.shuffle(names)
 
 # Generate a phone number
@@ -31,7 +31,7 @@ data_rows = []
 for i in range(1, NUM_ROWS + 1):
     # Generate random values for each column
     employee_id = i
-    phone = generate_phone_number
+    phone = generate_phone_number()
     if i == 1:
         role = "CEO"
         salary = random.randint(400000, 600000)
@@ -42,12 +42,12 @@ for i in range(1, NUM_ROWS + 1):
         role = "CSO"
         salary = random.randint(300000, 400000)
     elif i == 4:
-        role == "COO"
+        role = "COO"
         salary = random.randint(300000, 400000)
     elif i == 5:
-        role == "CTO"
+        role = "CTO"
         salary = random.randint(300000, 400000)
-    elif 5 <= i <= 25:
+    elif 6 <= i <= 25:
         role = "HR"
         salary = random.randint(60000, 120000)
     elif 26 <= i <= 226:
@@ -64,7 +64,7 @@ for i in range(1, NUM_ROWS + 1):
     destination_y = random.randint(1, 10)
 
     # Select a random City from the available options
-    city = random.choice(city)
+    city = random.choice(cities)
     city_name = city["name"]
 
     # Pop a name from the shuffled list
@@ -76,7 +76,7 @@ for i in range(1, NUM_ROWS + 1):
         name,
         role,
         phone,
-        city,
+        city_name,
         salary,
         location_x,
         location_y,
@@ -91,8 +91,7 @@ for i in range(1, NUM_ROWS + 1):
 with open(OUTPUT_FILE, "w", newline="") as file:
     writer = csv.writer(file)
     writer.writerow(
-        ["employee_id", "name", "role", "phone", "city", "salary", "location_x", "location_y", "destination_x",
-         "destination_y"]
+        ["employee_id", "name", "role", "phone", "city", "salary", "location_x", "location_y", "destination_x", "destination_y"]
     )
     writer.writerows(data_rows)
 

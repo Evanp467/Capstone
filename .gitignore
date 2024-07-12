@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # Ignore CSV files
-troop_movements.csv
+employees.csv
 troop_movements10m.csv
 
 # Ignore parquet files
