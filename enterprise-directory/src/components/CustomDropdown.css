@@ -1,0 +1,56 @@
+/* CustomDropdown.css */
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px; /* Increase space between dropdown boxes */
+}
+
+.dropdown-toggle {
+  width: 100%;
+  padding: 8px; /* Make the dropdown box shorter */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  color: #999;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg); /* Rotate the arrow when the dropdown is open */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  max-height: 200px; /* Limit the height of the dropdown */
+  overflow-y: auto; /* Add a scrollbar if the dropdown is too tall */
+}
+
+.checkbox-item {
+  padding: 5px 10px; /* Make the items smaller */
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-item input {
+  margin-right: 10px;
+}

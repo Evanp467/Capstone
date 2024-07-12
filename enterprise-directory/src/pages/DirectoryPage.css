@@ -74,23 +74,17 @@
   width: 200px;
 }
 
-.employee-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
 .employee-name {
   font-size: 1.2em;
   margin-bottom: 10px;
 }
 
-.employee-role,
-.employee-location,
-.employee-email {
+.employee-role, .employee-location, .employee-show, .employee-email {
   font-size: 0.9em;
   color: #666; /* Light gray text */
   margin-bottom: 5px;
+}
+
+.employee-show {
+  color: #e50914; /* Netflix red color for show */
 }
