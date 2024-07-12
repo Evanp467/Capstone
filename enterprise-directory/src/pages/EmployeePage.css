@@ -1,0 +1,72 @@
+/* EmployeePage.css */
+
+.employee-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.employee-header {
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.employee-avatar {
+  width: 100px;
+  height: 100px;
+  background-color: #d8d8d8;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.employee-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-info h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.employee-info p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.employee-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+}
+
+.detail-section {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.detail-section h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.detail-section p {
+  margin: 5px 0;
+  color: #666;
+}
