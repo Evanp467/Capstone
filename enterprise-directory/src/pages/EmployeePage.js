@@ -1,12 +1,89 @@
-import React from "react";
-import Header from "../components/Header";
-import EmployeeDetail from "../components/EmployeeDetail";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import "./EmployeePage.css";
 
 const EmployeePage = () => {
+  const { employeeId } = useParams();
+  const [employee, setEmployee] = useState(null);
+  const [user, setUser] = useState(null);
+  const [directReports, setDirectReports] = useState([]);
+
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("user"));
+    setUser(loggedInUser);
+
+    axios
+      .get(`http://localhost:5000/api/employees/${employeeId}`)
+      .then((response) => {
+        setEmployee(response.data);
+        if (
+          ["Manager", "HR", "CEO", "CFO", "COO", "CSO"].includes(
+            loggedInUser.role
+          )
+        ) {
+          // Fetch direct reports if the user is a manager, HR, or executive roles
+          axios
+            .get(
+              `http://localhost:5000/api/employees?manager_id=${response.data.employee_id}`
+            )
+            .then((res) => {
+              setDirectReports(res.data);
+            })
+            .catch((error) =>
+              console.error("Error fetching direct reports:", error)
+            );
+        }
+      })
+      .catch((error) =>
+        console.error("Error fetching employee details:", error)
+      );
+  }, [employeeId]);
+
+  if (!employee) {
+    return <div>Loading...</div>;
+  }
+
+  const canViewSalary =
+    user?.role === "HR" ||
+    ["CEO", "CFO", "COO", "CSO"].includes(user?.role) ||
+    user?.employee_id === employee.employee_id ||
+    (user?.role === "Manager" && employee.manager_id === user.employee_id);
+
   return (
-    <div>
-      <Header />
-      <EmployeeDetail />
+    <div className="employee-page">
+      <div className="employee-header">
+        <div className="employee-avatar">{/* Placeholder for avatar */}</div>
+        <div className="employee-info">
+          <h2>{employee.name}</h2>
+          <p>{employee.role}</p>
+          <p>{employee.city}</p>
+        </div>
+      </div>
+      <div className="employee-details">
+        <div className="detail-section">
+          <h3>Contact</h3>
+          <p>Phone: {employee.phone}</p>
+        </div>
+        <div className="detail-section">
+          <h3>Job</h3>
+          <p>Role: {employee.role}</p>
+          <p>Location: {employee.city}</p>
+          {canViewSalary && <p>Salary: ${employee.salary}</p>}
+        </div>
+        {directReports.length > 0 && (
+          <div className="detail-section">
+            <h3>Direct Reports</h3>
+            {directReports.map((report) => (
+              <div key={report.employee_id}>
+                <p>
+                  {report.name} - {report.role}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

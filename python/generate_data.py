@@ -28,6 +28,8 @@ def generate_phone_number():
 
 # Generate data rows
 data_rows = []
+managers = []
+
 for i in range(1, NUM_ROWS + 1):
     # Generate random values for each column
     employee_id = i
@@ -35,29 +37,39 @@ for i in range(1, NUM_ROWS + 1):
     if i == 1:
         role = "CEO"
         salary = random.randint(400000, 600000)
+        manager_id = None
     elif i == 2:
         role = "CFO"
         salary = random.randint(300000, 400000)
+        manager_id = None
     elif i == 3:
         role = "CSO"
         salary = random.randint(300000, 400000)
+        manager_id = None
     elif i == 4:
         role = "COO"
         salary = random.randint(300000, 400000)
+        manager_id = None
     elif i == 5:
         role = "CTO"
         salary = random.randint(300000, 400000)
+        manager_id = None
     elif 6 <= i <= 25:
         role = "HR"
         salary = random.randint(60000, 120000)
-    elif 26 <= i <= 226:
+        manager_id = None
+    elif 26 <= i <= 100:
         role = "Manager"
         salary = random.randint(100000, 200000)
+        manager_id = None
+        managers.append(i)
     else:
         role = random.choice(
             ["Software Dev", "Data Engineer", "Cybersecurity", "Sales", "Marketing", "Public Relations"]
         )
         salary = random.randint(50000, 150000)
+        manager_id = random.choice(managers) if managers else None
+
     location_x = random.randint(1, 10)
     location_y = random.randint(1, 10)
     destination_x = random.randint(1, 10)
@@ -83,6 +95,7 @@ for i in range(1, NUM_ROWS + 1):
         location_y,
         destination_x,
         destination_y,
+        manager_id
     ]
 
     # Add the data row to the list
@@ -92,7 +105,7 @@ for i in range(1, NUM_ROWS + 1):
 with open(OUTPUT_FILE, "w", newline="") as file:
     writer = csv.writer(file)
     writer.writerow(
-        ["employee_id", "name", "show", "role", "phone", "city", "salary", "location_x", "location_y", "destination_x", "destination_y"]
+        ["employee_id", "name", "show", "role", "phone", "city", "salary", "location_x", "location_y", "destination_x", "destination_y", "manager_id"]
     )
     writer.writerows(data_rows)
 
