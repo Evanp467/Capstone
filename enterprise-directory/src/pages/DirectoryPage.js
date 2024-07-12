@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import CustomDropdown from "../components/CustomDropdown";
-import ProfileMenu from "../components/ProfileMenu"; // Import ProfileMenu
+import ProfileMenu from "../components/ProfileMenu";
 import "./DirectoryPage.css";
 
 const roles = ["CEO", "CFO", "COO", "CSO", "HR", "Manager", "Employee"];
@@ -57,6 +58,7 @@ const DirectoryPage = () => {
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedShows, setSelectedShows] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch employees from the backend
@@ -112,6 +114,10 @@ const DirectoryPage = () => {
       (selectedShows.length === 0 || selectedShows.includes(employee.show))
   );
 
+  const handleEmployeeClick = (employeeId) => {
+    navigate(`/employee/${employeeId}`);
+  };
+
   return (
     <div className="directory-page">
       <aside className="sidebar">
@@ -156,7 +162,11 @@ const DirectoryPage = () => {
         <div className="employee-list">
           {filteredEmployees.length > 0 ? (
             filteredEmployees.map((employee) => (
-              <div key={employee.employee_id} className="employee-card">
+              <div
+                key={employee.employee_id}
+                className="employee-card"
+                onClick={() => handleEmployeeClick(employee.employee_id)}
+              >
                 <h2 className="employee-name">{employee.name}</h2>
                 <p className="employee-show">Show: {employee.show}</p>
                 <p className="employee-role">{employee.role}</p>

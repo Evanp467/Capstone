@@ -1,13 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const cors = require("cors"); // Import CORS
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors()); // Enable CORS
-app.use(bodyParser.json()); // Parse JSON bodies
+app.use(cors());
+app.use(bodyParser.json());
 
 // MongoDB connection
 mongoose.connect("mongodb://localhost:27017/employeeDirectory", {
@@ -34,6 +34,8 @@ const employeeSchema = new mongoose.Schema({
   location_y: Number,
   destination_x: Number,
   destination_y: Number,
+  email: String,
+  manager_id: Number,
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);
@@ -41,8 +43,24 @@ const Employee = mongoose.model("Employee", employeeSchema);
 // Routes
 app.get("/api/employees", async (req, res) => {
   try {
-    const employees = await Employee.find();
+    const { manager_id } = req.query;
+    const filter = manager_id ? { manager_id: Number(manager_id) } : {};
+    const employees = await Employee.find(filter);
     res.json(employees);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+app.get("/api/employees/:id", async (req, res) => {
+  try {
+    const employee = await Employee.findOne({
+      employee_id: Number(req.params.id),
+    });
+    if (!employee) {
+      return res.status(404).send({ message: "Employee not found" });
+    }
+    res.json(employee);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -66,9 +84,13 @@ app.post("/login", async (req, res) => {
   try {
     const employee = await Employee.findOne({ employee_id });
     if (employee && password === "password") {
-      // Here we just check if password is "password"
       console.log("Employee found:", employee);
-      res.json({ success: true, name: employee.name });
+      res.json({
+        success: true,
+        name: employee.name,
+        role: employee.role,
+        employee_id: employee.employee_id,
+      });
     } else {
       console.log("Employee not found or wrong password");
       res.json({ success: false });
