@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./EmployeePage.css";
 
 const EmployeePage = () => {
   const { employeeId } = useParams();
+  const navigate = useNavigate(); // useNavigate hook for navigation
   const [employee, setEmployee] = useState(null);
   const [user, setUser] = useState(null);
   const [directReports, setDirectReports] = useState([]);
@@ -60,10 +61,16 @@ const EmployeePage = () => {
 
   return (
     <div className="employee-page">
+      <button className="back-button" onClick={() => navigate("/DirectoryPage")}>
+        Back to Directory
+      </button>
       <div className="employee-header">
         <div className="employee-avatar">{/* Placeholder for avatar */}</div>
         <div className="employee-info">
-          <h2>{employee.name}</h2>
+          <h2>
+            {employee.name} -{" "}
+            <span className="employee-show">{employee.show}</span>
+          </h2>
           <p>{employee.role}</p>
           <p>{employee.city}</p>
         </div>
