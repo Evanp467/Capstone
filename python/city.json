@@ -3,20 +3,7 @@
     {"id": 2, "name": "New York City"},
     {"id": 3, "name": "Boston"},
     {"id": 4, "name": "Albany"},
-    {"id": 5, "name": "Bridgeport"},
-    {"id": 6, "name": "DC"},
-    {"id": 7, "name": "Baltimore"},
-    {"id": 8, "name": "Providence"},
-    {"id": 9, "name": "Springfield"},
-    {"id": 10, "name": "Chicago"},
-    {"id": 11, "name": "Dallas"},
-    {"id": 12, "name": "Houston"},
-    {"id": 13, "name": "Miami"},
-    {"id": 14, "name": "San Diego"},
-    {"id": 15, "name": "Los Angeles"},
-    {"id": 16, "name": "Kansas City"},
-    {"id": 17, "name": "Forest Hill"},
-    {"id": 18, "name": "Torrington"},
-    {"id": 19, "name": "Hunt Valley"},
-    {"id": 20, "name": "Keene"}
+    {"id": 5, "name": "Torrington"},
+    {"id": 6, "name": "Forrest Hill"},
+    {"id": 7, "name": "Hunt Valley"}
 ]
