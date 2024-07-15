@@ -12,7 +12,6 @@ model = joblib.load('trained_salary_model.pkl')
 
 # Define the exact columns expected by the model
 expected_columns = [
-    'location_x', 'location_y', 'destination_x', 'destination_y', 'manager_id',
     'role_CEO', 'role_CFO', 'role_COO', 'role_CSO', 'role_CTO', 'role_Cybersecurity',
     'role_Data Engineer', 'role_HR', 'role_Manager', 'role_Marketing', 'role_Public Relations',
     'role_Sales', 'role_Software Dev', 'city_Albany', 'city_Boston', 'city_Forrest Hill',
