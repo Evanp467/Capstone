@@ -79,7 +79,10 @@
   margin-bottom: 10px;
 }
 
-.employee-role, .employee-location, .employee-show, .employee-email {
+.employee-role,
+.employee-location,
+.employee-show,
+.employee-email {
   font-size: 0.9em;
   color: #666; /* Light gray text */
   margin-bottom: 5px;
@@ -87,4 +90,22 @@
 
 .employee-show {
   color: #e50914; /* Netflix red color for show */
+}
+
+.predictor-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.predictor-button:hover {
+  background-color: #0056b3;
 }

@@ -105,6 +105,10 @@ const DirectoryPage = () => {
     navigate(`/employee/${employeeId}`);
   };
 
+  const handlePredictorClick = () => {
+    navigate("/SalaryPredictor");
+  };
+
   return (
     <div className="directory-page">
       <aside className="sidebar">
@@ -134,6 +138,9 @@ const DirectoryPage = () => {
             onOptionChange={handleShowChange}
           />
         </div>
+        <button className="SalaryPredictor" onClick={handlePredictorClick}>
+          Go to Salary Predictor
+        </button>
       </aside>
       <main className="main-content">
         <div className="header">
