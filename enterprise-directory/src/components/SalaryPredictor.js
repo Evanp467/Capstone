@@ -1,7 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const jobRoles = ["Employee", "HR", "Manager"];
+const jobRoles = [
+  "HR",
+  "Manager",
+  "Cybersecurity",
+  "Data Engineer",
+  "Marketing",
+  "Public Relations",
+  "Sales",
+  "Software Dev",
+];
 
 const cities = [
   "Albany",
@@ -17,6 +27,7 @@ const SalaryPredictor = () => {
   const [jobRole, setJobRole] = useState("");
   const [workLocation, setWorkLocation] = useState("");
   const [predictedSalary, setPredictedSalary] = useState(null);
+  const navigate = useNavigate();
 
   const handlePredict = async () => {
     try {
@@ -60,6 +71,9 @@ const SalaryPredictor = () => {
       </select>
       <button onClick={handlePredict}>Predict Salary</button>
       {predictedSalary && <div>Predicted Salary: {predictedSalary}</div>}
+      <button onClick={() => navigate("/DirectoryPage")}>
+        Back to Directory
+      </button>
     </div>
   );
 };
