@@ -1,6 +1,6 @@
-import csv
 import random
 import json
+import csv
 
 # Generate data for characters
 NUM_ROWS = 1000
@@ -37,38 +37,32 @@ for i in range(1, NUM_ROWS + 1):
     if i == 1:
         role = "CEO"
         salary = random.randint(400000, 600000)
-        manager_id = None
     elif i == 2:
         role = "CFO"
         salary = random.randint(300000, 400000)
-        manager_id = None
     elif i == 3:
         role = "CSO"
         salary = random.randint(300000, 400000)
-        manager_id = None
     elif i == 4:
         role = "COO"
         salary = random.randint(300000, 400000)
-        manager_id = None
     elif i == 5:
         role = "CTO"
         salary = random.randint(300000, 400000)
-        manager_id = None
     elif 6 <= i <= 25:
         role = "HR"
         salary = random.randint(60000, 120000)
-        manager_id = None
-    elif 26 <= i <= 100:
+    elif 26 <= i <= 226:
         role = "Manager"
         salary = random.randint(100000, 200000)
-        manager_id = None
-        managers.append(i)
+        managers.append(i)  # Store manager IDs
     else:
         role = random.choice(
             ["Software Dev", "Data Engineer", "Cybersecurity", "Sales", "Marketing", "Public Relations"]
         )
         salary = random.randint(50000, 150000)
-        manager_id = random.choice(managers) if managers else None
+    
+    manager_id = random.choice(managers) if role not in ["CEO", "CFO", "CSO", "COO", "CTO", "HR", "Manager"] else None
 
     location_x = random.randint(1, 10)
     location_y = random.randint(1, 10)

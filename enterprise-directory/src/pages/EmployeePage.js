@@ -40,15 +40,23 @@ const EmployeePage = () => {
       );
   }, [employeeId]);
 
-  if (!employee) {
+  if (!employee || !user) {
     return <div>Loading...</div>;
   }
 
   const canViewSalary =
     user?.role === "HR" ||
     ["CEO", "CFO", "COO", "CSO"].includes(user?.role) ||
-    user?.employee_id === employee.employee_id ||
-    (user?.role === "Manager" && employee.manager_id === user.employee_id);
+    user?.employee_id == employee.employee_id || // Allow logged-in user to view their own salary
+    (user?.role === "Manager" && employee.manager_id == user.employee_id);
+
+  console.log("Logged in user:", user);
+  console.log("Viewing employee:", employee);
+  console.log("User role:", user.role);
+  console.log("Employee ID:", employee.employee_id);
+  console.log("Viewing Employee ID:", employee.employee_id);
+  console.log("Employee Manager ID:", employee.manager_id);
+  console.log("Can view salary:", canViewSalary);
 
   return (
     <div className="employee-page">
@@ -69,8 +77,13 @@ const EmployeePage = () => {
           <h3>Job</h3>
           <p>Role: {employee.role}</p>
           <p>Location: {employee.city}</p>
-          {canViewSalary && <p>Salary: ${employee.salary}</p>}
         </div>
+        {canViewSalary && (
+          <div className="detail-section">
+            <h3>Salary</h3>
+            <p>Salary: ${employee.salary}</p>
+          </div>
+        )}
         {directReports.length > 0 && (
           <div className="detail-section">
             <h3>Direct Reports</h3>
