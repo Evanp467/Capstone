@@ -43,7 +43,7 @@ plt.show()
 df_encoded = pd.get_dummies(df, columns=['role', 'city'])
 
 # Define features and target
-X = df_encoded.drop(columns=['employee_id', 'name', 'show', 'phone', 'salary'])  # Ensure non-numeric and unnecessary columns are dropped
+X = df_encoded.drop(columns=['employee_id', 'name', 'show', 'phone', 'salary', 'manager_id'])  # Ensure non-numeric and unnecessary columns are dropped
 y = df_encoded['salary']
 
 # Split the data
