@@ -7,11 +7,16 @@ const SalaryPredictor = () => {
   const [predictedSalary, setPredictedSalary] = useState(null);
 
   const handlePredict = async () => {
-    const response = await axios.post("/api/predict-salary", {
-      jobRole,
-      workLocation,
-    });
-    setPredictedSalary(response.data.salary);
+    try {
+      const response = await axios.post("/api/predict-salary", {
+        role: jobRole,
+        city: workLocation,
+      });
+      setPredictedSalary(response.data.salary);
+    } catch (error) {
+      console.error("Error predicting salary:", error);
+      setPredictedSalary("Error predicting salary");
+    }
   };
 
   return (
