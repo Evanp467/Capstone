@@ -64,11 +64,6 @@ for i in range(1, NUM_ROWS + 1):
     
     manager_id = random.choice(managers) if role not in ["CEO", "CFO", "CSO", "COO", "CTO", "HR", "Manager"] else None
 
-    location_x = random.randint(1, 10)
-    location_y = random.randint(1, 10)
-    destination_x = random.randint(1, 10)
-    destination_y = random.randint(1, 10)
-
     # Select a random City from the available options
     city = random.choice(cities)
     city_name = city["name"]
@@ -85,10 +80,6 @@ for i in range(1, NUM_ROWS + 1):
         phone,
         city_name,
         salary,
-        location_x,
-        location_y,
-        destination_x,
-        destination_y,
         manager_id
     ]
 
@@ -99,7 +90,7 @@ for i in range(1, NUM_ROWS + 1):
 with open(OUTPUT_FILE, "w", newline="") as file:
     writer = csv.writer(file)
     writer.writerow(
-        ["employee_id", "name", "show", "role", "phone", "city", "salary", "location_x", "location_y", "destination_x", "destination_y", "manager_id"]
+        ["employee_id", "name", "show", "role", "phone", "city", "salary", "manager_id"]
     )
     writer.writerows(data_rows)
 

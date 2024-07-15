@@ -33,7 +33,7 @@ def predict_salary(role, city):
             input_encoded[col] = 0
             
     # Drop any extra columns
-    input_encoded = input_encoded[df_encoded.columns.drop(['employee_id', 'name', 'show', 'phone', 'salary'])]
+    input_encoded = input_encoded[df_encoded.columns.drop(['employee_id', 'name', 'show', 'phone', 'salary', 'manager_id'])]
     
     # Predict the salary
     predicted_salary = model.predict(input_encoded)[0]
