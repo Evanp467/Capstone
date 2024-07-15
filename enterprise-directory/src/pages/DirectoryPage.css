@@ -3,19 +3,20 @@
 .directory-page {
   display: flex;
   min-height: 100vh;
-  background-color: #f0f0f0; /* Light background for the whole page */
+  background-color: #050505; 
 }
 
 .sidebar {
   width: 250px;
   padding: 20px;
-  background-color: #fff; /* White background for the sidebar */
+  background-color: #1f1e1e; 
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h2 {
   font-size: 1.5em;
   margin-bottom: 20px;
+  color: #f5f4f4;
 }
 
 .filter {
@@ -26,7 +27,7 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-}
+  }
 
 .filter select {
   width: 100%;
@@ -45,6 +46,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  color: #f5f4f4;
 }
 
 .directory-title {
@@ -66,7 +68,7 @@
 }
 
 .employee-card {
-  background-color: #fff;
+  background-color: #aa2121;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -79,17 +81,14 @@
   margin-bottom: 10px;
 }
 
-.employee-role,
-.employee-location,
-.employee-show,
-.employee-email {
+.employee-role, .employee-location, .employee-email {
   font-size: 0.9em;
-  color: #666; /* Light gray text */
+  color: #050505; /* Light gray text */
   margin-bottom: 5px;
 }
 
 .employee-show {
-  color: #e50914; /* Netflix red color for show */
+  color: #f5f4f4; /* Netflix red color for show */
 }
 
 .predictor-button {
