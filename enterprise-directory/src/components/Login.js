@@ -20,7 +20,11 @@ const Login = () => {
       if (response.data.success) {
         localStorage.setItem(
           "user",
-          JSON.stringify({ name: response.data.name, employee_id: username })
+          JSON.stringify({
+            name: response.data.name,
+            employee_id: username,
+            role: response.data.role,
+          })
         );
         navigate("/DirectoryPage");
       } else {
