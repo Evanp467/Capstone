@@ -5,7 +5,20 @@ import CustomDropdown from "../components/CustomDropdown";
 import ProfileMenu from "../components/ProfileMenu";
 import "./DirectoryPage.css";
 
-const roles = ["CEO", "CFO", "COO", "CSO", "HR", "Manager", "Employee"];
+const roles = [
+  "CEO",
+  "CFO",
+  "COO",
+  "CSO",
+  "HR",
+  "Manager",
+  "Cybersecurity",
+  "Data Engineer",
+  "Marketing",
+  "Public Relations",
+  "Sales",
+  "Software Dev",
+];
 const locations = [
   "Hartford",
   "New York City",
@@ -138,7 +151,10 @@ const DirectoryPage = () => {
             onOptionChange={handleShowChange}
           />
         </div>
-        <button className="SalaryPredictor" onClick={handlePredictorClick}>
+        <button
+          className="salary-predictor-button"
+          onClick={handlePredictorClick}
+        >
           Go to Salary Predictor
         </button>
       </aside>

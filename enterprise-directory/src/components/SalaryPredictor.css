@@ -1,0 +1,71 @@
+/* Ensure the entire page background is dark gray */
+body.salary-predictor {
+  background-color: #242424;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Center the container in the middle of the screen */
+.salary-predictor-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #2e2e2e; /* Dark gray background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #e50914; /* Netflix red color */
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff; /* White text color */
+}
+
+.predict-button,
+.back-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e50914; /* Netflix red color */
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.predict-button:hover,
+.back-button:hover {
+  background-color: #b20710; /* Darker Netflix red for hover effect */
+}
+
+.predicted-salary {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #fff; /* White text color */
+}

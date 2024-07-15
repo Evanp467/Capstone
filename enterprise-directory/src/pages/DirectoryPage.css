@@ -3,13 +3,13 @@
 .directory-page {
   display: flex;
   min-height: 100vh;
-  background-color: #050505; 
+  background-color: #050505;
 }
 
 .sidebar {
   width: 250px;
   padding: 20px;
-  background-color: #1f1e1e; 
+  background-color: #1f1e1e;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -27,7 +27,7 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  }
+}
 
 .filter select {
   width: 100%;
@@ -81,7 +81,9 @@
   margin-bottom: 10px;
 }
 
-.employee-role, .employee-location, .employee-email {
+.employee-role,
+.employee-location,
+.employee-email {
   font-size: 0.9em;
   color: #050505; /* Light gray text */
   margin-bottom: 5px;
@@ -95,7 +97,7 @@
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #292f36;
   color: white;
   border: none;
   border-radius: 5px;
