@@ -46,4 +46,4 @@ if __name__ == "__main__":
     
     predicted_salary = predict_salary(role, city)
     
-    print(f"The predicted salary for role '{role}' in city '{city}' is: {predicted_salary}")
+    print(f"The predicted salary for role '{role}' in city '{city}' is: {predicted_salary:.2f}")
